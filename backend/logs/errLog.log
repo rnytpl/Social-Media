@@ -1,0 +1,5 @@
+230223	11:37:21	3fadda45-1af8-4b1e-b945-0f8e6b56b427	SyntaxError, undefined, Unexpected token } in JSON at position 90
+230223	11:37:33	a0cb7c81-e3ad-4a70-b001-143ec8fcc894	Error, undefined, data and salt arguments required
+230223	11:39:23	3a53d179-b49f-4953-a345-8a4429afd231	Error, undefined, Fill all fields
+230223	04:28:15	21c848c8-6268-4099-9479-63b821100680	Error, undefined, User not found
+230223	04:28:28	42ebf038-6ac4-48b2-ac86-4f0193cbc63d	Error, undefined, User not found
