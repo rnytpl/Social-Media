@@ -5,11 +5,9 @@ import bcrypt from "bcrypt"
 import crypto from "crypto"
 
 export const register = asyncHandler(async (req, res) => {
-
     const { firstName, lastName, password, email, picturePath, friends, location, occupation, viewedProfile, impressions } = req.body
 
     // Check required fields
-
     const checkFields = [firstName, lastName, password, email].every(Boolean)
 
     if (!checkFields) {
@@ -17,7 +15,14 @@ export const register = asyncHandler(async (req, res) => {
         throw new Error("Fill all fields")
     }
 
-    const hashedPassword = await bcrypt.hashSync(password, 10)
+    const duplicateEmail = await User.findOne({ email }).lean().exec()
+
+    if (duplicateEmail) {
+        res.status(400).json({ message: "Email adress is already in use" })
+        throw new Error("Duplicate User")
+    }
+
+    const hashedPassword = bcrypt.hashSync(password, 10)
 
     const newUser = await User.create({
         firstName,
@@ -45,6 +50,7 @@ export const register = asyncHandler(async (req, res) => {
 })
 
 export const login = asyncHandler(async (req, res) => {
+
     const { email, password } = req.body;
 
     if (!email || !password) {
@@ -57,27 +63,20 @@ export const login = asyncHandler(async (req, res) => {
 
     // Check if user is found
     if (!findUser) {
-        res.status(400).json({ message: "User not  found" })
-        throw new Error("User not found")
-
+        return res.status(400).json({ message: "User not found" })
+        // throw new Error("User not found")
     }
 
-    const isMatch = await bcrypt.compare(password, findUser.password, (error, result) => {
-        if (error) {
-            console.error(error)
-            res.status(401).json({ message: "Please enter a valid email or password" })
-            throw new Error("Invalid email or password")
+    const isMatch = await bcrypt.compare(password, findUser.password)
+    if (!isMatch) {
+        res.status(400).json({ message: "Invalid credentials" })
+        throw new Error("Invalid credentials")
+    }
 
-        }
-    })
-
-    // Create a secret key
-    // console.log(crypto.randomBytes(256).toString("base64"))
     let token;
     if (isMatch) {
-        return token = jwt.sign({ id: findUser._id }, process.env.JWT_SECRET_KEY)
+        token = jwt.sign({ id: findUser._id }, process.env.JWT_SECRET_KEY)
     }
-
     delete findUser.password
-    res.status(200).json({ token, findUser })
+    return res.status(200).json({ token, findUser })
 })

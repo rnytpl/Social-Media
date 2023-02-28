@@ -6,11 +6,24 @@ import { logger } from "./middleware/eventLogger.js"
 import { errorHandler } from "./middleware/errorHandler.js"
 import { dbConnect } from "./mongo/dbConnect.js"
 import cors from "cors"
+import multer from "multer"
+/* FILE STORAGE */
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "uploads")
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname)
+    }
+})
+const upload = multer({ storage })
+
 
 /*Routes */
 import authRoutes from "./routes/authRoutes.js"
 import postsRoutes from "./routes/postsRoutes.js"
 import usersRoutes from "./routes/usersRoutes.js"
+import { register } from "./controllers/authContollers.js"
 
 /* CONFIG */
 const app = express()
@@ -26,6 +39,7 @@ app.get("/user", (req, res) => {
 })
 
 app.use("/", express.static(path.join(__dirname, "public")))
+app.post("/auth/register", upload.single("picture"), register)
 app.use("/auth", authRoutes)
 app.use("/users", usersRoutes)
 app.use("/postsRoutes", postsRoutes)

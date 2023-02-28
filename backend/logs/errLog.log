@@ -1,5 +1,113 @@
-230223	11:37:21	3fadda45-1af8-4b1e-b945-0f8e6b56b427	SyntaxError, undefined, Unexpected token } in JSON at position 90
-230223	11:37:33	a0cb7c81-e3ad-4a70-b001-143ec8fcc894	Error, undefined, data and salt arguments required
-230223	11:39:23	3a53d179-b49f-4953-a345-8a4429afd231	Error, undefined, Fill all fields
-230223	04:28:15	21c848c8-6268-4099-9479-63b821100680	Error, undefined, User not found
-230223	04:28:28	42ebf038-6ac4-48b2-ac86-4f0193cbc63d	Error, undefined, User not found
+260223	10:47:46	20484546-bc93-42a9-8035-989603df8238	Error, undefined, Invalid credentials
+270223	02:07:40	c40ad640-d325-4133-82b7-5e1efa8977f0	Error, undefined, Invalid credentials
+270223	02:08:01	dcf11309-ccf2-4fbd-a169-fc79ac589144	Error, undefined, Invalid credentials
+270223	02:08:40	64b86c7b-9a18-48e4-8a10-1c399f424118	Error, undefined, Invalid credentials
+270223	09:17:52	d0053a63-a015-4ac6-a992-b298e8400dc7	MongooseError, undefined, Operation `users.findOne()` buffering timed out after 10000ms
+270223	10:38:06	4685d114-f526-45aa-aa55-f472fe118638	Error, undefined, User not found
+270223	10:39:14	b7a86206-4a10-48b1-be73-b0e8ff93d5c1	Error, undefined, Duplicate User
+270223	10:41:27	0feb7f9e-1422-46c0-ab0f-b963eded299e	Error, undefined, Duplicate User
+270223	10:41:42	a116c12a-0bd2-491b-bf84-815ce034948f	Error, undefined, User not found
+270223	11:57:32	66c94a28-5dc2-48c8-90d7-3ce8940e857c	Error, undefined, Invalid credentials
+270223	11:59:49	2a809663-8356-43dd-bc2c-e8763b75bc45	Error, undefined, Invalid credentials
+280223	12:01:09	f34dae11-3fd3-4eb6-972b-512984b76444	Error, undefined, Invalid credentials
+280223	12:01:58	5a45aea4-8651-4743-8c0b-0a852631bc08	Error, undefined, Invalid credentials
+280223	12:02:32	a075e790-44eb-4b6d-a9cd-a5420bddbd4a	Error, undefined, Invalid credentials
+280223	12:03:15	fd0a883c-65f5-40b0-81fb-c4c6125f4580	Error, undefined, Invalid credentials
+280223	12:04:13	61cf6b6e-b955-4bd3-80a5-ef6117a1c2f3	Error, undefined, Invalid credentials
+280223	12:05:21	26b76968-ad41-43ef-9a34-cbb445d5d318	Error, undefined, Invalid credentials
+280223	12:06:12	1a2a2cd4-1348-4af6-b50c-762e9ef6738c	Error, undefined, Invalid credentials
+280223	12:06:30	0032a040-bf10-463e-851d-e988a1567457	Error, undefined, Invalid credentials
+280223	12:07:06	35031736-923c-407f-9bc4-ef7e6501acf8	Error, undefined, Invalid credentials
+280223	12:07:46	1c2800af-115c-4777-a893-a7a95ce8ed19	Error, undefined, Invalid credentials
+280223	12:09:33	3bc8ed97-f107-4423-9ff7-3f98d65cb750	Error, undefined, Invalid credentials
+280223	12:10:53	dc90a97e-860b-466d-8066-f5b73594fce6	Error, undefined, Invalid credentials
+280223	12:11:29	93c43db8-345b-4195-a9f2-b989b72fa380	Error, undefined, Invalid credentials
+280223	12:12:09	41526626-eea5-4384-b8ea-846d7faa7490	Error, undefined, Invalid credentials
+280223	12:12:13	83d5141d-4ea6-43dc-a767-730f3e359ca4	Error, undefined, Invalid credentials
+280223	12:12:54	ef45f75a-23b3-4c43-b376-8f35ccef3fee	Error, undefined, Invalid credentials
+280223	12:13:32	a9433390-f596-4604-82e3-bfd787245550	Error, undefined, Invalid credentials
+280223	12:15:56	4d4d139c-88a8-437e-8a5a-97dc24411346	Error, undefined, Invalid credentials
+280223	12:16:09	aefb8c76-3566-4f32-bf1e-e4077f982fba	Error, undefined, Invalid credentials
+280223	12:17:23	d68fa8e1-d960-46a6-b900-60457db0b3a4	Error, undefined, Invalid credentials
+280223	12:17:37	ea3881e6-2aa7-468f-abe5-3454937d5de4	Error, undefined, Invalid credentials
+280223	12:18:17	2cba9d2a-5cfb-4bca-8f90-8a71fbed1439	Error, undefined, User not found
+280223	12:20:32	4b38cba4-cf5f-463b-83a7-ea1d603221e0	Error, undefined, User not found
+280223	12:21:03	6eb523a5-790f-4493-813b-0b890be9e1cf	Error, undefined, User not found
+280223	12:21:30	659a382f-91db-43c2-a4b5-00a42374ab45	Error, undefined, User not found
+280223	12:21:56	bac625f3-70b7-44a8-bd3a-e13e47a2f176	Error, undefined, User not found
+280223	12:22:00	252cff6d-009e-4a9b-9a9b-f2e31d6798f0	Error, undefined, User not found
+280223	12:22:31	dfd23895-2f0b-45ca-a099-c026782d4953	Error, undefined, User not found
+280223	12:24:37	e4141855-87cd-4f4d-9263-189859b1a53a	Error, undefined, User not found
+280223	12:25:08	8bd91b04-c607-4dfd-91b2-70aa5194b7e8	Error, undefined, User not found
+280223	12:25:15	9307c7d9-8456-428b-a8f5-60ef2dcf6991	Error, undefined, User not found
+280223	12:28:21	132c1be5-d3a9-4846-a220-bc182c2c5659	Error, undefined, User not found
+280223	12:28:48	68853715-f6d6-4439-8785-0b3d400a1afe	Error, undefined, User not found
+280223	12:30:30	f1e0255e-5230-4ea1-a24a-4cf6e14d24d1	Error, undefined, User not found
+280223	12:30:49	cb63996c-66e8-483e-b32e-e59e2f1d08d2	Error, undefined, User not found
+280223	12:32:33	d964feb0-3d94-49a5-929f-a069c3e1b9e0	Error, undefined, User not found
+280223	12:32:39	d5ebbaea-1a6a-400e-a755-e19fe2451811	Error, undefined, User not found
+280223	12:34:03	8555b984-0c61-4a0c-af34-e20384f00dac	Error, undefined, User not found
+280223	12:34:32	fa1d937b-30d2-43da-9de9-97131ad3429e	Error, undefined, User not found
+280223	12:35:59	bad5683d-879a-49f9-8b4c-b935d5ad3867	Error, undefined, Invalid credentials
+280223	12:37:47	c7b9995b-391f-460e-ab63-edfd5261a29e	Error, undefined, Invalid credentials
+280223	12:39:40	60152bef-5864-4475-bd8d-a09afe80ff84	Error, undefined, Invalid credentials
+280223	12:40:03	a0972312-8952-4669-9f38-5f5def86b697	Error, undefined, Invalid credentials
+280223	12:41:32	4b78e008-b1d0-452a-a158-e462a95a22d1	MongooseServerSelectionError, undefined, Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+280223	12:44:54	077dc5ec-0a8c-4f11-b57b-d9f78ec4c76f	MongooseServerSelectionError, undefined, Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+280223	12:45:18	66265d83-53ac-4931-aece-8af0fed0e088	MongooseServerSelectionError, undefined, Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+280223	12:46:03	72526a2a-ba2a-473f-bf33-850c52ad35d3	MongooseError, undefined, Operation `users.findOne()` buffering timed out after 10000ms
+280223	12:47:48	f48e5809-9201-4f60-b184-657e9ba30922	Error, undefined, User not found
+280223	12:48:29	a77377a9-915c-4825-9905-ac2d825195af	Error, undefined, User not found
+280223	12:48:47	d930ebc7-1ed6-471e-9f8e-38fa9ebd5211	Error, undefined, User not found
+280223	12:48:52	28c45a49-1e53-4594-ac76-30940a9b0bd8	Error, undefined, User not found
+280223	12:49:03	71748c89-a608-4a19-8d66-7fa7f8e342a5	Error, undefined, User not found
+280223	12:50:34	72932f82-f184-4057-a168-8d72b988b45a	Error, undefined, User not found
+280223	12:52:43	1eb0fc50-3523-40c5-aa7d-32a02aa4103e	Error, undefined, User not found
+280223	12:53:05	1831ee83-fe85-43f8-a260-7f5d6d09ed56	Error, undefined, User not found
+280223	12:54:12	d3a7118b-d1ec-4beb-bfee-504f68a4fdc2	Error, undefined, User not found
+280223	12:55:12	222a1c63-6030-4342-9ed2-796f3539ad6e	Error, undefined, User not found
+280223	12:55:23	74e67ba7-fc5b-428b-aabc-d4916bca1b35	Error, undefined, User not found
+280223	12:56:37	0c90345f-09f4-45c6-9cb8-00f27368879a	Error, undefined, User not found
+280223	01:00:28	ff9502ae-122d-407a-8f1a-b32b7fca44a8	Error, undefined, User not found
+280223	01:01:04	7c94af76-ee7b-40c8-aafa-2b1c92eb6ab7	Error, undefined, User not found
+280223	01:01:31	177d74a6-d478-43f7-be74-119cd597b567	Error, undefined, User not found
+280223	01:02:17	7dc6cff1-4c62-45fa-8572-595f62c4d042	Error, undefined, User not found
+280223	01:02:34	469008e0-63ed-4116-8a5f-f18ff31363f0	Error, undefined, User not found
+280223	01:02:34	cac2fc22-8139-4c0c-8344-15723497f245	Error, undefined, User not found
+280223	01:03:11	8319cecf-5086-4156-a4f4-70c52a9d5d5a	Error, undefined, User not found
+280223	01:03:33	7a079b16-6707-4a48-bab3-01f4e55bdba7	Error, undefined, User not found
+280223	01:05:53	25639b77-4de9-4605-9f35-1309f03f3e99	Error, undefined, User not found
+280223	01:06:43	43711c07-edbf-40cd-ae46-07e88879f1bc	Error, undefined, User not found
+280223	01:07:17	e84e6a4c-27b5-48c0-a888-81a9ef9c39b9	Error, undefined, User not found
+280223	01:08:40	d6329561-d60d-486a-b84f-49096960d858	Error, undefined, User not found
+280223	01:10:15	5f2b21e4-04a1-4147-8a22-e3aca0ca9f8e	MongooseServerSelectionError, undefined, Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+280223	01:10:42	4c3fbcaf-a11f-4b2b-a804-bfcbcaf7a501	MongooseServerSelectionError, undefined, Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+280223	01:11:21	1e8ded20-a4d5-40d5-8609-4c589b6ec386	Error, undefined, User not found
+280223	01:32:28	dab1181e-115a-4f6e-8938-54cd1fa2db03	MongooseServerSelectionError, undefined, Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+280223	01:33:20	ae9443fb-6694-450c-884b-7a516d9681ea	MongooseServerSelectionError, undefined, Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+280223	05:59:58	67f14b4a-68db-407f-a76f-0e509d681bac	Error, undefined, Duplicate User
+280223	05:59:59	905406a0-0442-4a4e-b4f3-f47dac6bf143	Error, undefined, Duplicate User
+280223	06:00:04	25add4e7-a4f0-4ea1-8965-0470935e9237	Error, undefined, Duplicate User
+280223	06:00:07	f5b9b4c9-9d88-40ce-bfc7-b1ac7b7ceb1b	Error, undefined, Duplicate User
+280223	06:05:54	3210b269-6c51-4705-a041-e0170d46fb79	MongoServerError, 11000, E11000 duplicate key error collection: SOCIAL-MEDIA-APP.users index: email_1 dup key: { email: "rnytpl@gmail.com" }
+280223	06:07:25	8b2a7ed5-bb39-43e6-83b5-4636e1423468	MongoServerError, 11000, E11000 duplicate key error collection: SOCIAL-MEDIA-APP.users index: email_1 dup key: { email: "rnytpl@gmail.com" }
+280223	06:07:53	7948b9aa-38d2-4529-8a3b-02f2c5d5bcf2	Error, undefined, Duplicate User
+280223	06:11:00	6789131e-998f-432b-ba2f-f01e897a628a	Error, undefined, Duplicate User
+280223	06:12:27	3e2c92d9-36a7-4f42-9629-2c59d7207bd2	Error, undefined, Duplicate User
+280223	06:12:29	6d85bed4-2c73-414f-948b-09fe5fa1071a	Error, undefined, Duplicate User
+280223	06:12:30	3d12193f-6db1-4441-83ef-15b601704156	Error, undefined, Duplicate User
+280223	07:23:40	7e62adc3-504f-42c5-aac8-766902e155ef	ValidationError, undefined, User validation failed: picturePath: Cast to string failed for value "[ { path: 'foto.jpg' } ]" (type Array) at path "picturePath"
+280223	07:25:20	2e9847f1-e80d-4011-8499-6ba0dc271ba8	ValidationError, undefined, User validation failed: picturePath: Cast to string failed for value "[ { path: 'foto.jpg' } ]" (type Array) at path "picturePath"
+280223	07:25:22	5f95e1a9-6400-46e2-8fdd-e1369bf0116d	ValidationError, undefined, User validation failed: picturePath: Cast to string failed for value "[ { path: 'foto.jpg' } ]" (type Array) at path "picturePath"
+280223	07:25:54	c3dcb0bd-9109-4114-8aca-140da98c7fe0	ValidationError, undefined, User validation failed: picturePath: Cast to string failed for value "[ { path: 'foto.jpg' } ]" (type Array) at path "picturePath"
+280223	07:28:22	842f6674-8bae-4af6-a8fc-b30744822d96	ValidationError, undefined, User validation failed: picturePath: Cast to string failed for value "[ { path: 'foto.jpg' } ]" (type Array) at path "picturePath"
+280223	08:29:38	b76d8975-0881-4a95-b423-692cf5d44f4e	Error, undefined, Fill all fields
+280223	08:30:15	884ba9cb-7a85-4e64-9c59-f1f478e731b6	Error, undefined, Fill all fields
+280223	08:31:54	41b1eb22-9f06-4c39-8139-1ecfb4ba332f	Error, undefined, Fill all fields
+280223	08:34:31	0c12eb0c-8c61-4d17-9506-3450c47f9d5b	Error, undefined, Fill all fields
+280223	08:36:05	5b2aa0ad-8a66-474e-b9f9-3f24741528d5	Error, undefined, Fill all fields
+280223	08:39:32	84ead11b-4168-4559-978d-893d0fa39c4d	ReferenceError, undefined, s is not defined
+280223	08:40:33	a9976d0a-1e17-4557-b963-60ccc0d8666a	Error, undefined, Fill all fields
+280223	08:45:27	4645fe0b-0403-48f1-80c3-3e3e2004b61f	Error, undefined, Fill all fields
+010323	12:01:00	0cda3411-9a1d-4993-bfd2-3a4f6a16ea4b	Error, undefined, Duplicate User
+010323	12:01:47	afbade80-6681-4d8b-9a42-8f8069bd53bd	Error, undefined, Duplicate User
