@@ -5,6 +5,7 @@ import { useTheme } from "@mui/material";
 import { setMode } from "../../features/auth/authSlice";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const dispatch = useDispatch()
@@ -25,6 +26,7 @@ const Navbar = () => {
                 <Typography color="primary" fontSize="26px" fontWeight="bold">
                     SocioPedia
                 </Typography>
+                <Link to="/login">Login</Link>
                 {
                     isNonMobileScreen && (
                         <FlexBetween gap="2.25rem" backgroundColor={neutralLight} padding="0.1rem 1.5rem" borderRadius="0.25rem">
