@@ -111,3 +111,115 @@
 280223	08:45:27	4645fe0b-0403-48f1-80c3-3e3e2004b61f	Error, undefined, Fill all fields
 010323	12:01:00	0cda3411-9a1d-4993-bfd2-3a4f6a16ea4b	Error, undefined, Duplicate User
 010323	12:01:47	afbade80-6681-4d8b-9a42-8f8069bd53bd	Error, undefined, Duplicate User
+010323	01:49:46	6e39cea2-379d-4e6e-a47a-4db2e3f9595d	JsonWebTokenError, undefined, invalid signature
+010323	01:50:06	6fd0ab10-310d-4111-99c0-784f01e4fde6	JsonWebTokenError, undefined, invalid signature
+010323	01:50:18	c28e2b30-981e-4c61-82a3-6c216c1c4c10	JsonWebTokenError, undefined, invalid signature
+010323	01:50:59	d4f1c670-b500-4af9-b2d3-0cb30ed3d713	Error, undefined, Unauthorized, invalid token
+010323	03:32:49	04039880-f603-41c6-9029-8920abcb1fd8	Error, undefined, Invalid credentials
+010323	05:13:29	51e7d0e7-6ed1-4432-8d11-b7b237b5ec94	Error, undefined, Invalid credentials
+010323	05:13:32	759a9773-9468-4ce3-a311-bf6a56cee597	Error, undefined, Invalid credentials
+010323	10:56:36	675be37c-98bb-495b-a877-77e0723fddeb	Error, undefined, Duplicate User
+020323	12:51:11	60ae6037-50eb-4962-bf78-55eeefca770b	Error, undefined, Unauthorized, invalid token
+020323	01:58:33	8f7abd65-8e3e-40bd-8d77-ad018d272c6d	Error, undefined, Unauthorized, invalid token
+020323	01:58:59	11b03319-0f6a-483e-aec3-885bb0f54317	Error, undefined, Unauthorized, invalid token
+020323	01:59:28	0cd66a51-162e-464e-ab24-7d037d1c1831	Error, undefined, Unauthorized, invalid token
+020323	01:01:27	8e4a22b8-9b1f-47ba-8e23-dc832bf1bc96	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:02:21	9dddb995-59ee-42ee-9971-95fe0ab7c93f	CastError, undefined, Cast to ObjectId failed for value "{ id: '63ff35d164ef2e11d02a07f9' }" (type Object) at path "_id" for model "User"
+020323	01:02:39	6b0f815c-30fa-42ce-84ce-0cb172d3bc27	CastError, undefined, Cast to ObjectId failed for value "{ id: '63ff35d164ef2e11d02a07f9' }" (type Object) at path "_id" for model "User"
+020323	01:02:52	1adc43f9-25d9-47f8-9a32-35b28d94743e	CastError, undefined, Cast to ObjectId failed for value "{ id: '63ff35d164ef2e11d02a07f9' }" (type Object) at path "_id" for model "User"
+020323	01:03:07	c21d05bb-fc0d-46b5-899f-63af057cc816	CastError, undefined, Cast to ObjectId failed for value "{ id: '63ff35d164ef2e11d02a07f9' }" (type Object) at path "_id" for model "User"
+020323	01:04:05	6fff5d7a-566e-4a25-9559-7f38d912b27d	CastError, undefined, Cast to ObjectId failed for value "{ id: '63ff35d164ef2e11d02a07f9' }" (type Object) at path "_id" for model "User"
+020323	01:05:39	65961be9-fbaa-41fd-8909-e6513dcdca12	CastError, undefined, Cast to ObjectId failed for value "{ id: '63ff35d164ef2e11d02a07f9' }" (type Object) at path "_id" for model "User"
+020323	01:08:43	c9fa9b77-7ad9-48e0-a64d-186b0f373547	CastError, undefined, Cast to ObjectId failed for value "{ id: '63ff35d164ef2e11d02a07f9' }" (type Object) at path "_id" for model "User"
+020323	01:10:00	621fd3cb-97a8-4534-b5bf-78bf2a860108	CastError, undefined, Cast to ObjectId failed for value "{ id: '63ff35d164ef2e11d02a07f9' }" (type Object) at path "_id" for model "User"
+020323	01:11:35	16e05820-6f6a-44eb-98ae-17f0f2dd4f3a	CastError, undefined, Cast to ObjectId failed for value "{ id: '63ff35d164ef2e11d02a07f9' }" (type Object) at path "_id" for model "User"
+020323	01:12:11	8d142a66-f6ca-4638-8829-d2d7a0789e77	CastError, undefined, Cast to ObjectId failed for value "{ id: '63ff35d164ef2e11d02a07f9' }" (type Object) at path "_id" for model "User"
+020323	01:13:03	35473b9f-ff14-4150-a482-97ecc2ea6704	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:14:44	62e9e709-3651-4551-8b1c-0464865c86b9	CastError, undefined, Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "User"
+020323	01:15:34	0075cc82-e00d-4253-9115-b6566e328ae7	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:16:55	f3d9b827-483d-475c-b496-cf122463fdf1	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:18:05	9853814f-8a42-4e51-a887-3eaae6e67e98	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:18:54	9457bc6c-a148-4fad-b66d-aec801cc0b40	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:19:07	f2bbdbba-88ea-4532-b4aa-13107d0f91d4	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:21:38	29711cb5-5e20-4b71-96cc-8f06885fd1ec	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:21:54	d2f34f30-f9ac-4d3d-a670-1a6acd68bdb0	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:22:24	53dcd602-6c70-4d8c-a24d-3d3b1cea4579	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:24:02	637b89d9-1615-49b2-b730-fed59bd3b51b	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:24:54	a4c6bd66-7711-49ed-9116-a89372b74b0a	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:25:53	1a7bbe1f-18da-4500-8a41-48db89ae5447	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:28:06	dd5dec9d-100d-4ae4-90a0-d0c55552015c	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:41:19	328a49a6-d3a0-47e0-8c2d-58437cec6b5b	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:42:22	0f5e9807-7045-431d-b6b5-d845955b50e1	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:43:32	4dca4942-c73e-4b8c-b07f-a221569940a6	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:48:59	c6266f30-c9c6-4d28-84c8-8aeabe0f0a29	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:51:44	8ddb9469-bc38-4780-8ac7-249cd1c1e264	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:52:36	7c2609a9-b69d-480f-89b1-4a65bed2d98d	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:52:42	e5e187de-5312-4c79-bb8d-ffcb93ee2920	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:52:42	e689d436-7274-4848-ac86-ebcb781819c7	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:53:40	eaa91e37-061e-4f24-8ae9-72da646e7a7e	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:55:06	5d31f4b3-5f24-4e21-9615-0b7f543cd6ee	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:55:35	11e96ab5-6bb2-4e93-a067-c3470a9d7eb2	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:55:58	c8e5f18f-441b-4e2c-b220-e85c7f3ac907	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:55:58	42a05279-efd9-473b-9b89-6ed0d1094be7	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:57:43	f98809ee-dc3c-4d0b-a9ac-c85538dd9c26	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:58:21	0bfaa7d9-622d-47f0-9a98-0974305a61ea	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	01:58:52	112f0e64-b1ef-46a0-b86e-5cbbeb8d8c5a	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	03:05:42	332e04cf-1425-4c2b-beca-6c4609d8128d	Error, undefined, Invalid credentials
+020323	04:21:07	3a918bc8-20c5-4ba3-b31d-9f641e775248	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	04:22:16	8090c850-a763-4679-a29a-d73b0afbfb83	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	04:23:21	72bc72fc-c406-4df5-b15e-4138fe9c8d6c	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	04:24:14	51a26d1a-9ce3-410a-9f11-63e249177ff6	MongoServerError, 40352, FieldPath cannot be constructed with empty string
+020323	04:39:31	0ca7d939-d2e4-4c91-b83c-12b57c8f1e87	Error, undefined, Unauthorized, invalid token
+020323	04:39:51	b72b0601-b2f9-4bd0-95a1-b1535828b2af	Error, undefined, Unauthorized, invalid token
+020323	04:42:03	3ee79386-7654-4e88-b790-51bac9dd3acf	Error, undefined, Unauthorized, invalid token
+020323	04:42:47	0c3d47fa-d15d-4da9-a994-b2c93a133f97	Error, undefined, Unauthorized, invalid token
+020323	04:43:30	b3a7ad0c-c436-4cb6-a33a-991af09b2e26	Error, undefined, Unauthorized, invalid token
+020323	04:43:47	77e17844-fa0e-4035-935a-81f7bd2d2890	Error, undefined, Unauthorized, invalid token
+020323	04:44:37	f543c95b-0468-4b51-8781-19d56d324a2e	Error, undefined, Unauthorized, invalid token
+020323	04:45:22	0500e013-9e4e-435a-a1dc-1140aec515b8	Error, undefined, Unauthorized, invalid token
+020323	04:45:51	a17c10ee-a5a4-4726-871d-471170345c28	Error, undefined, Unauthorized, invalid token
+020323	04:46:20	7214b393-6f0a-4046-bb61-31d2703e4f7c	Error, undefined, Unauthorized, invalid token
+020323	04:48:43	006bc025-b1dc-448b-a7ba-5b817d45fcfd	Error, undefined, Unauthorized, invalid token
+020323	04:54:05	a8773711-49f8-4ad8-a6be-b52822d694b7	Error, undefined, Unauthorized, invalid token
+020323	04:55:34	4a77ef78-2dea-4e46-a5c9-786fc1610e48	Error, undefined, Unauthorized, invalid token
+020323	04:55:36	a5d9d275-2e19-4bfb-b10c-0f944c70fb67	Error, undefined, Unauthorized, invalid token
+020323	04:55:58	c84bff92-a803-43c0-a1d3-00b3ede6e30d	JsonWebTokenError, undefined, jwt malformed
+020323	04:57:41	525449b8-94c5-4abc-af7a-eba6e2d00ab8	JsonWebTokenError, undefined, jwt malformed
+020323	04:57:45	cb7a28e8-d26f-4845-9ecf-d6667919d91f	JsonWebTokenError, undefined, jwt malformed
+020323	04:57:58	79a783df-79a5-468c-b425-dd9b4380e134	JsonWebTokenError, undefined, jwt malformed
+020323	04:59:04	43b1a707-23cc-4181-b644-de535eecd826	JsonWebTokenError, undefined, jwt malformed
+020323	05:00:00	c427e9e9-5b5b-4deb-b38e-cf8e5d401e53	Error, undefined, Unauthorized, invalid token
+020323	05:00:46	eea77509-f934-48e9-aef1-b071a6d812b8	Error, undefined, Unauthorized, invalid token
+020323	05:00:58	1e3701bc-5f69-40c1-8ab3-f6607a92b35d	Error, undefined, Unauthorized, invalid token
+020323	06:45:26	4f5919dc-e4bd-4335-a502-2fec47ba837d	Error, undefined, Unauthorized, invalid token
+020323	06:45:56	708d1254-a6a6-406d-a4be-5fc4d1d7c873	Error, undefined, Unauthorized, invalid token
+020323	06:46:39	e46696f9-2282-4691-a5f1-54a4d8844832	Error, undefined, Unauthorized, invalid token
+020323	07:32:55	843a953e-e76f-4776-afbf-b03ee913272d	Error, undefined, Unauthorized, invalid token
+020323	07:36:12	7a405593-0b6d-42a7-a040-0d6a54a0de6f	Error, undefined, Unauthorized, invalid token
+020323	08:10:32	d4b50418-37bd-472f-b70e-5946ae063f01	Error, undefined, Unauthorized, invalid token
+020323	08:10:37	7bc1d248-2a42-41cf-a1c4-0b62553c4ce4	Error, undefined, Unauthorized, invalid token
+020323	08:12:15	1519634b-5545-4ded-bbfd-1f4fcf6df310	Error, undefined, Unauthorized, invalid token
+020323	08:14:37	f4570597-4c93-4cda-9be3-e7b315fafd22	Error, undefined, Unauthorized, invalid token
+020323	08:22:23	83e0e4cc-3c7e-46bd-924b-4672ce4df2b3	Error, undefined, Unauthorized, invalid token
+020323	09:12:01	2701daaf-066a-4649-92c0-3aedeb69346f	JsonWebTokenError, undefined, jwt malformed
+020323	09:13:18	34bc2908-c7a3-4611-8fc8-0906c6078c66	JsonWebTokenError, undefined, jwt malformed
+020323	09:15:09	d308140e-948b-41c8-bfc3-c02e499879a5	JsonWebTokenError, undefined, jwt malformed
+020323	09:16:05	5e576652-9050-454b-a703-434c25dd6cc0	JsonWebTokenError, undefined, jwt malformed
+020323	09:16:40	efe05787-1080-404b-bbb4-c9c754c36865	JsonWebTokenError, undefined, jwt malformed
+020323	09:17:15	418c3e6f-5111-4ce2-a6fc-b6d586d63079	JsonWebTokenError, undefined, jwt malformed
+020323	09:18:46	d2531bb1-bc03-4fd5-a7b6-27f7b7d72619	CastError, undefined, Cast to ObjectId failed for value "63ff35d164ef2e11d02a07f9a" (type string) at path "_id" for model "User"
+020323	09:22:25	629bcf94-52ec-4f9f-b7a9-f6aca0941602	CastError, undefined, Cast to ObjectId failed for value "63ff35d164ef2e11d02a07f9a" (type string) at path "_id" for model "User"
+020323	09:22:37	bb419558-8135-4bab-8b92-e4a88a008132	CastError, undefined, Cast to ObjectId failed for value "63ff35d164ef2e11d02a07f9a" (type string) at path "_id" for model "User"
+020323	09:24:36	b2da2d18-a39c-487b-aad2-44b7c8cb50bd	CastError, undefined, Cast to ObjectId failed for value "63fe8e86565bde6d75ede812a" (type string) at path "_id" for model "User"
+020323	09:25:25	99d9e5ce-8f6f-4e4d-b962-f6635fdde102	CastError, undefined, Cast to ObjectId failed for value "63fe8e86565bde6d75ede812as" (type string) at path "_id" for model "User"
+020323	09:26:36	9a5983c1-b676-486f-ac64-84a8c5a0981f	CastError, undefined, Cast to ObjectId failed for value "63fe8e86565bde6d75ede812a" (type string) at path "_id" for model "User"
+020323	09:28:04	47fb4613-5835-454b-b93f-16477958f6fc	Error, undefined, User not found
+020323	09:32:43	dbd80d78-3e0d-497e-995a-50ffea9ad21e	Error, undefined, User not found
+020323	09:34:23	757d140e-2e82-4047-b0b2-d3056885d122	Error, undefined, User not found
+020323	09:36:53	cc35de47-f0e0-478b-b48c-4225f4e270a4	Error, undefined, User not found
+020323	09:39:32	151cf6bd-e47c-4c7d-94af-722fbfcda8f4	Error, undefined, User not found
+020323	10:32:02	ae42bd6d-6b10-4f15-9459-eaa6c4401e1f	Error, undefined, User not found
+020323	10:32:23	f149875d-8f79-4f65-a835-01547f67481f	Error, undefined, User not found
+020323	11:38:33	25939546-2d76-45f2-924c-7b502f9d2dd2	Error, undefined, User not found
+020323	11:38:52	4509c7e4-b1d0-4758-8090-6671e65999ae	Error, undefined, User not found
+020323	11:45:55	90117def-798a-4d0e-84f7-6f046bbe27f9	Error, undefined, User not found
