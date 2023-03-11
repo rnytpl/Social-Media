@@ -59,9 +59,9 @@ export const register = asyncHandler(async (req, res) => {
     .json({ message: `New user created ${newUser.firstName}`, newUser });
 });
 
+//// LOGIN
 export const login = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
-
   if (!email || !password) {
     res
       .status(400)

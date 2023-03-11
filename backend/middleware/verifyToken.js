@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 
 export const verifyToken = (req, res, next) => {
   const token = req.headers.authorization || req.headers.Authorization;
-  console.log(req.headers);
+
   // Check if token received
   if (!token) {
     res.status(400).json({ message: "You're not authorized, invalid token" });

@@ -30,7 +30,6 @@ export const getUserFriends = asyncHandler(async (req, res) => {
   const { id } = req.params;
 
   const findUser = await User.findById(id).lean().exec();
-  console.log(findUser);
   if (!findUser) {
     res.status(401).json({ message: "User not found" });
     throw new Error("User not found");
@@ -64,8 +63,7 @@ export const addRemoveFriend = asyncHandler(async (req, res) => {
     throw new Error("User not found, addRemoveFriend");
   }
 
-  const findFriend = await User.findById(id);
-
+  const findFriend = await User.findById(friendId);
   if (!findFriend) {
     res.status(401).json({ message: "Friend not found" });
     throw new Error("Friend not found, addRemoveFriend");
@@ -82,12 +80,28 @@ export const addRemoveFriend = asyncHandler(async (req, res) => {
     await findFriend.save();
 
     const friends = await Promise.all(
-      findUser.friends.map((id) => User.findById(id))
+      findUser.friends.map((id) => User.findById(id).lean())
     );
 
-    const formattedFriends = friends.mapI(
-      ({ _id, firstName, lastName, occupation, location, picturePath }) => {
-        return { _id, firstName, lastName, occupation, location, picturePath };
+    const formattedFriends = friends.map(
+      ({
+        _id,
+        firstName,
+        lastName,
+        occupation,
+        friends,
+        location,
+        picturePath,
+      }) => {
+        return {
+          _id,
+          firstName,
+          lastName,
+          occupation,
+          friends,
+          location,
+          picturePath,
+        };
       }
     );
 
