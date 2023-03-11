@@ -1,23 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-
-export const login = createAsyncThunk(
-  "auth/login",
-  async (userCredentials, { rejectWithValue }) => {
-    try {
-      const response = await axios.post(
-        `${process.env.REACT_APP_BASE_URL}/auth/login`,
-        {
-          ...userCredentials,
-        }
-      );
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(error.response.data.message);
-    }
-  }
-);
 
 export const authSlice = createSlice({
   name: "auth",
@@ -31,6 +12,14 @@ export const authSlice = createSlice({
     posts: [],
   },
   reducers: {
+    setUser: (state, action) => {
+      const { findUser, token, message } = action.payload;
+      if (message) {
+        state.isError = message;
+      }
+      state.token = token;
+      state.user = findUser;
+    },
     setMode: (state, action) => {
       state.mode = state.mode === "light" ? "dark" : "light";
     },
@@ -40,26 +29,12 @@ export const authSlice = createSlice({
       state.isSuccess = false;
       state.isError = null;
     },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(login.pending, (state, action) => {
-        state.isLoading = true;
-      })
-      .addCase(login.fulfilled, (state, action) => {
-        const { token, findUser } = action.payload;
-        state.isLoading = false;
-        state.isSuccess = true;
-        state.token = token;
-        state.user = findUser;
-      })
-      .addCase(login.rejected, (state, action) => {
-        console.log(action.payload);
-        state.isLoading = false;
-        state.isSuccess = false;
-        state.isError = action.payload;
-      });
+    updateFriends: (state, action) => {
+      const friends = action.payload;
+      console.log(action.payload);
+      state.user.friends = friends;
+    },
   },
 });
 
-export const { setMode, logout } = authSlice.actions;
+export const { setUser, setMode, logout, updateFriends } = authSlice.actions;

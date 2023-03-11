@@ -1,12 +1,17 @@
-import { createEntityAdapter } from "@reduxjs/toolkit";
 import { apiSlice } from "../../api/apiSlice";
-
-const authAdapter = createEntityAdapter({});
-
-const initialState = authAdapter.getInitialState();
 
 export const authApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
+    login: builder.mutation({
+      query: ([email, password]) => ({
+        url: "auth/login",
+        method: "POST",
+        body: {
+          email,
+          password,
+        },
+      }),
+    }),
     register: builder.mutation({
       query: (userInfo) => ({
         url: "auth/register",
@@ -17,4 +22,4 @@ export const authApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
-export const { useRegisterMutation } = authApiSlice;
+export const { useRegisterMutation, useLoginMutation } = authApiSlice;

@@ -1,13 +1,11 @@
-import { Button, CircularProgress } from "@mui/material"
+import { Button, CircularProgress } from "@mui/material";
 
 const LoadingButton = () => {
-    return (
-        <Button fullWidth>
-            <CircularProgress padding="0" size="25px">
+  return (
+    <Button fullWidth>
+      <CircularProgress padding="0" size="25px" />
+    </Button>
+  );
+};
 
-            </CircularProgress>
-        </Button>
-    )
-}
-
-export default LoadingButton
+export default LoadingButton;

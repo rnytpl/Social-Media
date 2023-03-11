@@ -13,18 +13,13 @@ import { Close } from "@mui/icons-material";
 import { FlexBetween } from "../../components/FlexBetween";
 import { useRegisterMutation } from "../../features/auth/authApiSlice";
 import { Link, useNavigate } from "react-router-dom";
-import { login } from "features/auth/authSlice";
+import { useLoginMutation } from "../../features/auth/authApiSlice";
 import { useDispatch, useSelector } from "react-redux";
 import LoadingButton from "components/LoadingButton";
 import Error from "components/Error";
+import { setUser } from "features/auth/authSlice";
 
 const Form = () => {
-  const {
-    isLoading: isLoginLoading,
-    isSuccess: isLoginSuccess,
-    isError: loginError,
-  } = useSelector((state) => state.auth);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const theme = useTheme();
@@ -36,7 +31,9 @@ const Form = () => {
   const [email, setEmail] = useState("");
   const [occupation, setOccupation] = useState("");
   const [location, setLocation] = useState("");
+  const [picture, setPicture] = useState(null);
   const [picturePath, setPicturePath] = useState("");
+
   const [
     register,
     {
@@ -47,6 +44,16 @@ const Form = () => {
     },
   ] = useRegisterMutation();
 
+  const [
+    login,
+    {
+      isLoading: isLoginLoading,
+      isError: isLoginError,
+      isSuccess: isLoginSuccess,
+      error: loginError,
+    },
+  ] = useLoginMutation();
+
   const resetStates = () => {
     setFirstName("");
     setLastName("");
@@ -54,20 +61,22 @@ const Form = () => {
     setEmail("");
     setOccupation("");
     setLocation("");
+    setPicture(null);
     setPicturePath("");
+    setPageType("login");
   };
 
   useEffect(() => {
     if (isRegisterSuccess) {
       resetStates();
-      navigate("/");
+      navigate("/login");
     }
   }, [isRegisterSuccess, navigate]);
 
   useEffect(() => {
     if (isLoginSuccess) {
       resetStates();
-      navigate("/");
+      navigate("/home");
     }
   }, [isLoginSuccess]);
 
@@ -86,17 +95,19 @@ const Form = () => {
       email: email,
       occupation: occupation,
       location: location,
-      picture: picturePath[0],
+      picture: picture,
     };
-    Object.entries(values).map(([key, value]) => formData.append(key, value));
 
-    formData.append("picturePath", picturePath[0].name);
+    Object.entries(values).map(([key, value]) => formData.append(key, value));
+    formData.append("picturePath", picture.name);
+
     await register(formData);
   };
 
   const onLoginClicked = async (e) => {
     e.preventDefault();
-    dispatch(login({ email, password }));
+    const response = await login([email, password]).unwrap();
+    dispatch(setUser(response));
   };
 
   const registerCanSave = [
@@ -106,7 +117,7 @@ const Form = () => {
     password,
     occupation,
     location,
-    picturePath,
+    picture,
   ].every(Boolean);
 
   const loginCanSave = [email, password].every(Boolean);
@@ -191,7 +202,8 @@ const Form = () => {
                 acceptedFiles=".jpeg,.jpeg,.png"
                 multiple={false}
                 onDrop={(acceptedFiles) => {
-                  setPicturePath(acceptedFiles);
+                  console.log(acceptedFiles);
+                  setPicture(acceptedFiles[0]);
                 }}
               >
                 {({ getRootProps, getInputProps }) => {
@@ -201,16 +213,16 @@ const Form = () => {
                       flexDirection="column"
                       height="50px"
                     >
-                      {picturePath ? (
+                      {picture ? (
                         <FlexBetween
                           justifyContent="space-between"
                           gap="2.25rem"
                           margin="auto"
                         >
                           <Typography sx={{ position: "relative" }}>
-                            {picturePath[0].path}
+                            {picture.path}
                             <IconButton
-                              onClick={() => setPicturePath("")}
+                              onClick={() => setPicture(null)}
                               sx={{
                                 position: "absolute",
                                 padding: "0",
@@ -246,7 +258,7 @@ const Form = () => {
           {isRegisterError && <Error error={registerError.data.message} />}
           <Grid item xs={12}>
             {isRegisterLoading ? (
-              <LoadingButton />
+              <LoadingButton fullWidth />
             ) : (
               <Button
                 type="submit"
@@ -289,7 +301,7 @@ const Form = () => {
               fullWidth
             />
           </Grid>
-          {loginError && <Error error={loginError} />}
+          {loginError && <Error error={loginError.data.message} />}
           <Grid item xs={12}>
             {isLoginLoading ? (
               <LoadingButton />
