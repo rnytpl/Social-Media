@@ -1,21 +1,23 @@
-import { Box, Divider, IconButton, TextField } from "@mui/material";
+import { Box, IconButton, TextField } from "@mui/material";
 import { Send } from "@mui/icons-material";
 import { FlexBetween } from "./FlexBetween";
 import { useCreateCommentMutation } from "features/posts/postsApiSlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const CommentBox = ({ userId, postId, token }) => {
+const CommentBox = ({ userId, postId }) => {
   const [comment, setComment] = useState("");
-  const [createComment, { isLoading }] = useCreateCommentMutation();
+  const [createComment, { isSuccess }] = useCreateCommentMutation();
+
+  useEffect(() => {
+    if (isSuccess) {
+      setComment("");
+    }
+  }, [isSuccess]);
 
   const commentHandler = async (e) => {
     e.preventDefault();
-    await createComment([userId, postId, token, comment]);
+    await createComment([userId, postId, comment]);
   };
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
 
   return (
     <Box width="100%" padding="0.5rem">

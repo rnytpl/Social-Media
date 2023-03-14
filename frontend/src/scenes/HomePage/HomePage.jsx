@@ -1,9 +1,4 @@
 import { Box, useMediaQuery } from "@mui/material";
-import { useGetUsersQuery } from "features/users/usersApiSlice";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import Navbar from "scenes/Navbar/Navbar";
 import AdvertWidget from "scenes/Widgets/AdvertWidget";
 import FriendsListWidget from "scenes/Widgets/FriendsListWidget";
 import MyPostWidget from "scenes/Widgets/MyPostWidget";
@@ -12,14 +7,27 @@ import UserWidget from "scenes/Widgets/UserWidget";
 
 const HomePage = () => {
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
-  const { _id, picturePath } = useSelector((state) => state.auth.user);
+  const isExtraLargeScreens = useMediaQuery("(min-width: 1400px");
+  const isXXLScreens = useMediaQuery("(min-width: 1600px");
+  /*
 
+*/
   return (
-    <Box>
-      <Navbar />
+    <Box
+      width={
+        isXXLScreens
+          ? "70vw"
+          : isExtraLargeScreens
+          ? "90vw"
+          : isNonMobileScreens
+          ? "100vw"
+          : "60vw"
+      }
+      sx={{ m: "auto" }}
+    >
       <Box
         width="100%"
-        padding="2rem 6%"
+        padding={isNonMobileScreens ? "2rem 6%" : "2rem 0.75rem"}
         display={isNonMobileScreens ? "flex" : "block"}
         gap="0.5rem"
         justifyContent="space-between"
@@ -35,7 +43,7 @@ const HomePage = () => {
           <PostsWidget />
         </Box>
         {isNonMobileScreens && (
-          <Box flexBasis="26%">
+          <Box flexBasis="30%">
             <AdvertWidget />
             <Box m="2rem 0">
               <FriendsListWidget />

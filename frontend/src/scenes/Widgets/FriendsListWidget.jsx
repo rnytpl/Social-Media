@@ -1,19 +1,17 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { FlexBetween } from "components/FlexBetween";
 import { Chat } from "@mui/icons-material";
-import Friend from "components/Friend";
 import UserImage from "components/UserImage";
 import WidgetWrapper from "components/WidgetWrapper";
-import { useGetUsersQuery } from "features/users/usersApiSlice";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { selectAllUsers } from "features/users/usersApiSlice";
 
 const FriendsListWidget = () => {
-  const dispatch = useDispatch();
   const { palette } = useTheme();
-  const token = useSelector((state) => state.auth.token);
   const friends = useSelector((state) => state.auth.user.friends);
-  console.log(friends);
+  const allUsers = useSelector((state) => selectAllUsers(state));
+  const filteredUsers = allUsers.filter((user) => friends.includes(user._id));
+
   return (
     <WidgetWrapper>
       <Typography
@@ -24,7 +22,7 @@ const FriendsListWidget = () => {
       >
         Friend List
       </Typography>
-      {friends.map((friend) => (
+      {filteredUsers.map((friend) => (
         <Box mb="1rem" key={friend._id}>
           <FlexBetween>
             <UserImage image={friend.picturePath} />

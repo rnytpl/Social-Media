@@ -1,6 +1,6 @@
 import {
-  EditOutlined,
-  DeleteOutlined,
+  // EditOutlined,
+  // DeleteOutlined,
   AttachFileOutlined,
   GifBoxOutlined,
   ImageOutlined,
@@ -25,19 +25,17 @@ import UserImage from "components/UserImage";
 import WidgetWrapper from "components/WidgetWrapper";
 import LoadingButton from "components/LoadingButton";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useCreatePostMutation } from "features/posts/postsApiSlice";
 
 const MyPostWidget = () => {
-  const [createPost, { isLoading, isSuccess, isError, error }] =
-    useCreatePostMutation();
+  const [createPost, { isLoading, isSuccess }] = useCreatePostMutation();
 
   const [isImage, setIsImage] = useState(false);
   const [image, setImage] = useState(null);
   const [post, setPost] = useState("");
   const { palette } = useTheme();
   const { _id, picturePath } = useSelector((state) => state.auth.user);
-  const { token } = useSelector((state) => state.auth);
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
   const mediumMain = palette.neutral.mediumMain;
   const medium = palette.neutral.medium;
@@ -59,7 +57,7 @@ const MyPostWidget = () => {
       data.append("picture", image);
       data.append("picturePath", image.name);
     }
-    await createPost([data, token]);
+    await createPost([data]);
   };
 
   return (

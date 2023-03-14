@@ -11,6 +11,8 @@ import { postsApiSlice } from "features/posts/postsApiSlice";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
+store.dispatch(usersApiSlice.endpoints.getUsers.initiate());
+
 store.dispatch(postsApiSlice.endpoints.getPosts.initiate());
 
 root.render(

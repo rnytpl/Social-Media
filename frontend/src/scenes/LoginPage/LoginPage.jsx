@@ -4,40 +4,35 @@ import Form from "./Form";
 
 import { styled } from "@mui/system";
 
-const StyledLink = styled(Link)(({ theme }) => ({
-  textDecoration: "none",
-  color: theme.palette.primary.main,
-}));
-
 const LoginPage = () => {
   const theme = useTheme();
+  const isExtraLargeScreen = useMediaQuery("(min-width: 1500px)");
+  const isLargeScreen = useMediaQuery("(min-width: 1300px)");
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
+  const isSmallScreen = useMediaQuery("(min-width: 600px)");
 
   return (
-    <Box>
-      <Box
-        width="100%"
-        backgroundColor={theme.palette.background.alt}
-        p="1rem 6%"
-        textAlign="center"
-      >
-        <Typography fontWeight="bold" fontSize="32px" color="primary">
-          <StyledLink to="/">SocioPedia</StyledLink>
-        </Typography>
-      </Box>
-
-      <Box
-        width={isNonMobileScreens ? "40%" : "93%"}
-        p="2rem"
-        m="2rem auto"
-        borderRadius="1.5rem"
-        backgroundColor={theme.palette.background.alt}
-      >
-        <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
-          Welcome to Socipedia, the Social Media for Sociopaths!
-        </Typography>
-        <Form />
-      </Box>
+    <Box
+      width={
+        isExtraLargeScreen
+          ? "25%"
+          : isLargeScreen
+          ? "30%"
+          : isNonMobileScreens
+          ? "50%"
+          : isSmallScreen
+          ? "60%"
+          : "60%"
+      }
+      p="2rem"
+      m="2rem auto"
+      borderRadius="1.5rem"
+      backgroundColor={theme.palette.background.alt}
+    >
+      <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
+        Welcome to Socipedia, the Social Media for Sociopaths!
+      </Typography>
+      <Form />
     </Box>
   );
 };

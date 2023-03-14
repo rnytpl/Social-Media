@@ -8,14 +8,9 @@ const initialState = usersAdapter.getInitialState();
 export const usersApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getUsers: builder.query({
-      query: ([token, friends]) => ({
-        url: `users`,
-        body: friends,
-        headers: {
-          authorization: token,
-        },
+      query: () => ({
+        url: "users",
       }),
-
       transformResponse: (responseData) => {
         const loadedUsers = responseData.map((user) => {
           user.id = user._id;
@@ -23,10 +18,9 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         });
         return usersAdapter.setAll(initialState, loadedUsers);
       },
-      providesTags: (result = [], error, arg) => {
+      providesTags: (result, error, arg) => {
         if (result?.ids) {
           return [
-            // Create an object that contains two objects
             {
               type: "User",
               id: "LIST",
@@ -40,17 +34,13 @@ export const usersApiSlice = apiSlice.injectEndpoints({
       },
     }),
     getUser: builder.query({
-      query: ([id, token]) => ({
-        url: `users/${id}`,
-        headers: {
-          authorization: token,
-        },
+      query: ([userId]) => ({
+        url: `users/${userId}`,
       }),
       validateStatus: (response, result) => {
         return response.status === 200 && !result.isError;
       },
       transformResponse: (responseData) => {
-        console.log(responseData);
         const user = { ...responseData };
         user.id = user._id;
         return usersAdapter.setOne(initialState, responseData);
@@ -75,20 +65,11 @@ export const usersApiSlice = apiSlice.injectEndpoints({
 
 export const { useGetUsersQuery, useGetUserQuery } = usersApiSlice;
 
-// // Get getUsers query result
-// // export const selectUsersResult = usersApiSlice.endpoints.getUsers.select();
-// export const selectUserResult = usersApiSlice.endpoints.getUser.select();
+const selectUsersResult = usersApiSlice.endpoints.getUsers.select();
 
-// const selectUsersData = createSelector(selectUsersResult, (usersResult) => {
-//   return usersResult.data;
-// });
-// const selectUserData = createSelector(selectUserResult, (userResult) => {
-//   return userResult.data;
-// });
+const selectUsersData = createSelector(selectUsersResult, (usersResult) => {
+  return usersResult.data;
+});
 
-// export const { selectAll: selectAllUsers, selectIds: selectUserIds } =
-//   usersAdapter.getSelectors((state) => selectUsersData(state) ?? initialState);
-
-// export const { selectById: selectUserById } = usersAdapter.getSelectors(
-//   (state) => selectUserData(state) ?? initialState
-// );
+export const { selectAll: selectAllUsers, selectById: selectUserById } =
+  usersAdapter.getSelectors((state) => selectUsersData(state) ?? initialState);

@@ -31,7 +31,6 @@ export const authSlice = createSlice({
     },
     updateFriends: (state, action) => {
       const friends = action.payload;
-      console.log(action.payload);
       state.user.friends = friends;
     },
   },

@@ -20,7 +20,7 @@ const AdvertWidget = () => {
         width="100%"
         height="auto"
         alt="advert"
-        src=""
+        src="https://firebasestorage.googleapis.com/v0/b/social-media-app-f5543.appspot.com/o/freestock_151700096.jpg?alt=media&token=baa2fd31-9f54-4804-9094-7be5fb8dc592"
         style={{ borderRadius: "0.75rem", margin: "0.75rem 0" }}
       />
       <FlexBetween>

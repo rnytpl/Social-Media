@@ -15,12 +15,9 @@ const initialState = postsAdapter.getInitialState();
 export const postsApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getPosts: builder.query({
-      query: (token) => ({
+      query: () => ({
         url: "/posts",
         method: "GET",
-        headers: {
-          authorization: token,
-        },
       }),
       transformResponse: (responseData) => {
         // console.log(responseData, "responseData");
@@ -47,26 +44,20 @@ export const postsApiSlice = apiSlice.injectEndpoints({
       },
     }),
     createPost: builder.mutation({
-      query: ([data, token]) => ({
+      query: ([data]) => ({
         url: "/posts",
         method: "POST",
         body: data,
-        headers: {
-          authorization: token,
-        },
       }),
       invalidatesTags: [{ type: "Post", id: "LIST" }],
     }),
     createComment: builder.mutation({
-      query: ([userId, postId, token, comment]) => ({
+      query: ([userId, postId, comment]) => ({
         url: `posts/${postId}`,
         method: "POST",
         body: {
           userId,
           comment,
-        },
-        headers: {
-          authorization: token,
         },
       }),
       invalidatesTags: (result, err, arg) => {
@@ -74,25 +65,19 @@ export const postsApiSlice = apiSlice.injectEndpoints({
       },
     }),
     likePost: builder.mutation({
-      query: ({ postId, userId, token }) => ({
+      query: ({ postId, userId }) => ({
         url: `posts/${postId}/like`,
         method: "PATCH",
         body: userId,
-        headers: {
-          authorization: token,
-        },
       }),
       invalidatesTags: (result, err, arg) => {
         return [{ type: "Post", id: arg.postId }];
       },
     }),
     addFriend: builder.mutation({
-      query: ({ postId, id, friendId, token }) => ({
+      query: ({ postId, id, friendId }) => ({
         url: `users/${id}/${friendId}`,
         method: "PATCH",
-        headers: {
-          authorization: token,
-        },
       }),
       invalidatesTags: (result, error, arg) => {
         return [{ type: "Post", id: arg.postId }];

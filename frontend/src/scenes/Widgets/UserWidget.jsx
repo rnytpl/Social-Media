@@ -9,7 +9,6 @@ import UserImage from "components/UserImage";
 import { FlexBetween } from "components/FlexBetween";
 import WidgetWrapper from "components/WidgetWrapper";
 import { useNavigate, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 // import { selectUserById } from "features/users/usersApiSlice";
 // import { useGetUserQuery } from "features/users/usersApiSlice";
@@ -18,6 +17,7 @@ const UserWidget = () => {
   const { palette } = useTheme();
   const navigate = useNavigate();
   const {
+    _id: id,
     picturePath,
     firstName,
     lastName,
@@ -27,12 +27,10 @@ const UserWidget = () => {
     viewedProfile,
     impressions,
   } = useSelector((state) => state.auth.user);
-  const token = useSelector((state) => state.auth.token);
   const dark = palette.neutral.dark;
   const medium = palette.neutral.medium;
   const main = palette.neutral.main;
-  const { id } = useParams();
-
+  console.log(id, "userWidget");
   return (
     <WidgetWrapper>
       {/* FIRST ROW */}
@@ -57,7 +55,7 @@ const UserWidget = () => {
             >
               {firstName} {lastName}
             </Typography>
-            <Typography color={medium}>{friends.length}</Typography>
+            <Typography color={medium}>{friends?.length}</Typography>
           </Box>
         </FlexBetween>
         <ManageAccountsOutlined />

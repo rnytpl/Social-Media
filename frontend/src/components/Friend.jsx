@@ -6,22 +6,20 @@ import UserImage from "./UserImage";
 import { useNavigate } from "react-router-dom";
 import { useAddFriendMutation } from "features/posts/postsApiSlice";
 import { updateFriends } from "features/auth/authSlice";
-// import LoadingButton from "./LoadingButton";
 
 const Friend = ({ name, location, userPicturePath, postId, postUserId }) => {
   const { palette } = useTheme();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { _id } = useSelector((state) => state.auth.user);
-  const token = useSelector((state) => state.auth.token);
   const friends = useSelector((state) => state.auth.user.friends);
-  const isFriend = Boolean(friends.find((friend) => friend._id === postUserId));
+  const isFriend = Boolean(friends?.find((friend) => friend === postUserId));
   const primaryLight = palette.primary.light;
   const primaryDark = palette.primary.dark;
   const main = palette.neutral.main;
   const medium = palette.neutral.medium;
 
-  const [addFriend, { isLoading, isSuccess }] = useAddFriendMutation();
+  const [addFriend] = useAddFriendMutation();
   const addFriendHandler = async () => {
     // postID to invalidate post to refetch the updated post info from backend
     // userId is the current user who wants to befriend the owner of the post
@@ -31,8 +29,8 @@ const Friend = ({ name, location, userPicturePath, postId, postUserId }) => {
       postId: postId,
       id: _id,
       friendId: postUserId,
-      token,
     }).unwrap();
+
     dispatch(updateFriends(formattedFriends));
   };
 
