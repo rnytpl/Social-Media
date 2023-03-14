@@ -70,7 +70,10 @@ export const login = asyncHandler(async (req, res) => {
   }
 
   // Find User by email
-  const findUser = await User.findOne({ email }).lean().exec();
+  const findUser = await User.findOne({ email })
+    .populate("friends")
+    .lean()
+    .exec();
 
   // Check if user is found
   if (!findUser) {

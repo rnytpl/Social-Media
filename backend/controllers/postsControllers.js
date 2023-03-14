@@ -34,12 +34,10 @@ export const createPost = asyncHandler(async (req, res) => {
 
 export const newComment = asyncHandler(async (req, res) => {
   const { postId } = req.params;
-  console.log(postId);
   const { userId, comment } = req.body;
   const findUser = await User.findById(userId);
   const findPost = await Post.findById(postId);
 
-  console.log(findPost);
   if (!findUser) {
     res.status(401).json({ message: "User not found" });
     throw new Error("User not found, comment");
@@ -68,7 +66,7 @@ export const newComment = asyncHandler(async (req, res) => {
 
 export const getFeedPosts = asyncHandler(async (req, res) => {
   try {
-    const post = await Post.find().populate("comments");
+    const post = await Post.find().populate("comments").lean().exec();
     res.status(200).json(post);
   } catch (err) {
     res.status(404).json({ message: err.message });

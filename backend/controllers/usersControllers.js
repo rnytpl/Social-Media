@@ -2,6 +2,7 @@ import asyncHandler from "express-async-handler";
 import { User } from "../models/User.js";
 
 export const getUsers = asyncHandler(async (req, res) => {
+  console.log("getUsers");
   const users = await User.find().lean().exec();
 
   // Check users
@@ -16,7 +17,10 @@ export const getUsers = asyncHandler(async (req, res) => {
 export const getUser = asyncHandler(async (req, res) => {
   const { id } = req.params;
 
-  const findUser = await User.findById(id).select("-password").lean();
+  const findUser = await User.findById(id)
+    .populate("friends")
+    .select("-password")
+    .lean();
 
   if (!findUser) {
     res.status(400).json({ message: "User not found" });
@@ -55,27 +59,29 @@ export const getUserFriends = asyncHandler(async (req, res) => {
 
 export const addRemoveFriend = asyncHandler(async (req, res) => {
   const { id, friendId } = req.params;
-
-  const findUser = await User.findById(id);
-
+  const findUser = await User.findById(id).exec();
+  console.log(id, "id", friendId, "friendId");
   if (!findUser) {
     res.status(401).json({ message: "User not found" });
     throw new Error("User not found, addRemoveFriend");
   }
-
   const findFriend = await User.findById(friendId);
   if (!findFriend) {
     res.status(401).json({ message: "Friend not found" });
     throw new Error("Friend not found, addRemoveFriend");
   }
+
   try {
+    console.log(findUser.friends.includes(friendId));
     if (findUser.friends.includes(friendId)) {
-      findUser.friends = findUser.friends.filter((id) => id !== friendId);
+      findUser.friends = findUser.friends.filter(
+        (friend) => friend !== friendId
+      );
+      findFriend.friends = findFriend.friends.filter((friend) => friend !== id);
     } else {
       findUser.friends.push(friendId);
       findFriend.friends.push(id);
     }
-
     await findUser.save();
     await findFriend.save();
 
@@ -83,27 +89,9 @@ export const addRemoveFriend = asyncHandler(async (req, res) => {
       findUser.friends.map((id) => User.findById(id).lean())
     );
 
-    const formattedFriends = friends.map(
-      ({
-        _id,
-        firstName,
-        lastName,
-        occupation,
-        friends,
-        location,
-        picturePath,
-      }) => {
-        return {
-          _id,
-          firstName,
-          lastName,
-          occupation,
-          friends,
-          location,
-          picturePath,
-        };
-      }
-    );
+    const formattedFriends = friends.map(({ _id }) => {
+      return _id;
+    });
 
     res.status(200).json(formattedFriends);
   } catch (error) {

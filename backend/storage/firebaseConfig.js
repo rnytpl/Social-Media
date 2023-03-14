@@ -16,20 +16,22 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
 export const storage = getStorage(app);
 
 export const uploadMulter = async (req, res, next) => {
-  const storageRef = ref(storage, req.file.originalname);
-  const metadata = {
-    contentType: req.file.mimetype,
-  };
-  const uploadTask = await uploadBytes(storageRef, req.file.buffer, metadata);
-  const downloadUrl = await getDownloadURL(uploadTask.ref);
+  if (req.file) {
+    const storageRef = ref(storage, req.file.originalname);
+    const metadata = {
+      contentType: req.file.mimetype,
+    };
+    const uploadTask = await uploadBytes(storageRef, req.file.buffer, metadata);
+    const downloadUrl = await getDownloadURL(uploadTask.ref);
 
-  req.body = {
-    ...req.body,
-    picturePath: downloadUrl,
-  };
+    req.body = {
+      ...req.body,
+      picturePath: downloadUrl,
+    };
+    next();
+  }
   next();
 };

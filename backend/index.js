@@ -39,7 +39,13 @@ app.get("/user", (req, res) => {
 app.use("/", express.static(path.join(__dirname, "public")));
 
 app.post("/auth/register", upload.single("picture"), uploadMulter, register);
-app.post("/posts", verifyToken, upload.single("picture"), createPost);
+app.post(
+  "/posts",
+  verifyToken,
+  upload.single("picture"),
+  uploadMulter,
+  createPost
+);
 
 app.use("/auth", authRoutes);
 app.use("/users", usersRoutes);

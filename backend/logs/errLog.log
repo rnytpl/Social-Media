@@ -381,3 +381,52 @@
 120323	01:29:49	b0cddcca-2353-4221-b7f2-b6dfd38c58b8	ReferenceError, undefined, Comment is not defined
 120323	01:30:01	84fb07c9-3027-4f7a-b571-1515f26042f6	ReferenceError, undefined, Comment is not defined
 120323	01:31:21	320bdea5-e3a7-4118-97ba-f63e11a7260b	ReferenceError, undefined, Comment is not defined
+120323	03:01:12	7779f444-8b6d-41ec-9e12-a651451f30e2	Error, undefined, Unauthorized, invalid token
+120323	03:01:15	c0fbc979-1a37-4a3c-94d3-8ae985a17627	Error, undefined, Unauthorized, invalid token
+120323	03:01:45	92898845-6dfe-46dc-ba1a-045218e17d05	Error, undefined, Unauthorized, invalid token
+120323	03:01:55	e3e6b04b-3346-4592-b9c6-135b4268c9a0	Error, undefined, Unauthorized, invalid token
+120323	03:02:26	3fc3593c-0d0f-425b-b7fc-4bedf60d2aab	CastError, undefined, Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "User"
+120323	03:09:20	1b0117df-16c6-4c03-9917-eb2f120ffb33	CastError, undefined, Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "User"
+120323	03:09:39	ff99a574-c268-4ec3-af5d-a2ff272584de	CastError, undefined, Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "User"
+120323	03:09:57	fa25bd3a-9371-4d32-b064-f2370797e3ec	CastError, undefined, Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "User"
+120323	06:40:07	98b4a375-2a8e-449a-b561-d7936bb62a8d	Error, undefined, Invalid credentials
+120323	06:46:34	4b02b307-1ffe-4c8a-8233-98936a60e865	Error, undefined, Invalid credentials
+120323	06:46:36	5554acfb-10df-4231-922e-2255da323d1c	Error, undefined, Invalid credentials
+120323	06:53:22	a1f52cd8-0952-4046-8daa-c1e63473cca2	Error, undefined, Invalid credentials
+120323	07:05:50	f97780a2-cee0-47d1-a189-1dc21d631a1b	Error, undefined, Invalid credentials
+120323	07:26:11	05b8b754-cc35-4bf3-b0d9-56215761ace3	Error, undefined, Boolean(...) is not a function
+120323	07:26:12	eddc8878-b68a-415d-a1e7-263843a975cc	Error, undefined, Boolean(...) is not a function
+120323	07:26:12	7d2c6425-888b-4108-a537-ba2883d34f25	Error, undefined, Boolean(...) is not a function
+120323	07:29:23	b2a34dee-5232-4ff6-8448-7c0d409e38f7	Error, undefined, Friend not found, addRemoveFriend
+120323	07:29:38	0004f84f-ece5-4677-bf0e-266f63abe32b	Error, undefined, Friend not found, addRemoveFriend
+120323	07:30:46	dc817473-e7a2-4f35-b565-d09b76e8a6d0	Error, undefined, Friend not found, addRemoveFriend
+120323	07:31:15	a9e6e99b-53e3-4e01-b426-961d525158ec	Error, undefined, Friend not found, addRemoveFriend
+120323	07:31:33	49a96ad6-63b7-420a-9f1b-9fce7800ae89	Error, undefined, Friend not found, addRemoveFriend
+120323	07:31:38	96c82e74-4db5-4621-a0e6-7a135474ff04	Error, undefined, Friend not found, addRemoveFriend
+120323	07:31:56	8669c295-f365-4c12-b609-3bec1f3a79a3	Error, undefined, Invalid credentials
+120323	07:32:14	2fee7a51-3f56-4efa-9d5c-5cbb264a25c2	Error, undefined, Friend not found, addRemoveFriend
+120323	07:32:23	61345c49-768d-4cec-84f8-1545f53192ae	Error, undefined, Friend not found, addRemoveFriend
+120323	07:32:26	43ea08f2-9de2-4043-894b-99c2cee8b959	Error, undefined, Friend not found, addRemoveFriend
+120323	07:32:31	7ea5d3b4-b815-488e-a47a-e7c6e684eb5d	Error, undefined, Friend not found, addRemoveFriend
+120323	07:58:24	76dc6171-c931-48cb-ad84-766880ea8a16	Error, undefined, findUser.save is not a function
+120323	07:58:31	9fd02b33-80d1-43d1-846a-b9fa03b9d3a4	Error, undefined, findUser.save is not a function
+120323	08:00:20	84066301-5301-4ca7-8c3b-55c542ecf371	Error, undefined, findUser.save is not a function
+120323	08:01:08	f2bde2e2-8547-463d-9d77-e2e7d17611ae	Error, undefined, findUser.save is not a function
+120323	08:01:37	e5dbea1d-391c-413e-8612-42e8b86e3464	Error, undefined, findUser.save is not a function
+120323	08:11:14	4c579d50-f73a-4287-99b5-0b65165079e8	Error, undefined, findUser.friends.includes is not a function
+120323	08:12:00	337a4ea2-c794-49c9-86a5-b2aff3762a4f	Error, undefined, Cannot read properties of undefined (reading 'includes')
+120323	08:12:22	27b71bcd-50dd-46a7-92b2-4854063680ce	Error, undefined, Cannot read properties of undefined (reading 'includes')
+120323	08:12:39	f67dd65a-0a1b-475a-a04b-c7ca849f5004	Error, undefined, Cannot read properties of undefined (reading 'includes')
+120323	08:12:59	11d12446-9088-417b-b683-b04b9bbb5f80	Error, undefined, Cannot read properties of undefined (reading 'push')
+120323	08:14:06	f6ed8ba1-dc27-4370-a706-15412866d79a	Error, undefined, Cannot read properties of undefined (reading 'push')
+120323	08:15:03	84601a72-81f0-42a1-a176-a47bfb538506	Error, undefined, User validation failed: friends: Cast to ObjectId failed for value "[]" (type Array) at path "friends" because of "BSONTypeError"
+120323	08:18:29	9b90572a-ab14-48a8-bc5c-a9ba5273e5c2	Error, undefined, User validation failed: friends: Cast to ObjectId failed for value "[]" (type Array) at path "friends" because of "BSONTypeError"
+120323	08:18:54	175f6933-265a-4276-aa4d-9576c9adfff8	Error, undefined, User validation failed: friends: Cast to string failed for value "[]" (type Array) at path "friends"
+120323	08:19:45	5ddaf41c-ee49-4c12-9fa2-9c9fcbaf3676	Error, undefined, User validation failed: friends: Cast to string failed for value "[]" (type Array) at path "friends"
+120323	08:20:22	81ea30db-e7b4-476d-81fa-da1b7fb7f754	Error, undefined, User validation failed: friends: Cast to string failed for value "[]" (type Array) at path "friends"
+120323	08:23:06	98429b8e-1aab-4b86-a84e-3000b95fb48e	Error, undefined, User validation failed: friends: Cast to string failed for value "[]" (type Array) at path "friends"
+120323	08:23:15	72630714-82a8-4df6-9edb-27c93fdec4ea	Error, undefined, User validation failed: friends: Cast to string failed for value "[]" (type Array) at path "friends"
+120323	08:31:00	0da21c77-a046-42aa-ac81-6db2b91df983	Error, undefined, Friend not found, addRemoveFriend
+120323	08:31:48	e4e7e3d3-c508-49a0-86af-2b1f8d3e4b53	Error, undefined, User validation failed: friends: Cast to string failed for value "[]" (type Array) at path "friends"
+130323	12:05:17	27866a68-3976-4818-bdf1-b33ce7317857	Error, ERR_HTTP_HEADERS_SENT, Cannot set headers after they are sent to the client
+130323	01:10:39	fe51992e-9b96-4973-bd50-6f977d7b306b	Error, ERR_HTTP_HEADERS_SENT, Cannot set headers after they are sent to the client
