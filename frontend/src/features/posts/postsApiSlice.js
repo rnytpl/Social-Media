@@ -104,7 +104,7 @@ const selectPostsResults = postsApiSlice.endpoints.getPosts.select();
 // Everytime createSelector will run and check if the results match with previously returned results
 // In the case of changes, it'll re-run the createSelector function and update values
 const selectPostsData = createSelector(selectPostsResults, (postsResult) => {
-  // console.log(postsResult, "postsResult");
+  console.log(postsResult, "postsResult");
   return postsResult.data;
 });
 

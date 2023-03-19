@@ -1,4 +1,5 @@
 import { Box, useMediaQuery } from "@mui/material";
+import { useSelector } from "react-redux";
 import AdvertWidget from "scenes/Widgets/AdvertWidget";
 import FriendsListWidget from "scenes/Widgets/FriendsListWidget";
 import MyPostWidget from "scenes/Widgets/MyPostWidget";
@@ -9,9 +10,9 @@ const HomePage = () => {
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
   const isExtraLargeScreens = useMediaQuery("(min-width: 1400px");
   const isXXLScreens = useMediaQuery("(min-width: 1600px");
-  /*
 
-*/
+  const { _id: id } = useSelector((state) => state.auth.user);
+
   return (
     <Box
       width={
@@ -33,7 +34,7 @@ const HomePage = () => {
         justifyContent="space-between"
       >
         <Box flexBasis={isNonMobileScreens ? "26%" : undefined}>
-          <UserWidget />
+          <UserWidget userId={id} />
         </Box>
         <Box
           flexBasis={isNonMobileScreens ? "42%" : undefined}

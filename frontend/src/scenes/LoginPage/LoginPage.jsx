@@ -1,8 +1,5 @@
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
-import { Link } from "react-router-dom";
 import Form from "./Form";
-
-import { styled } from "@mui/system";
 
 const LoginPage = () => {
   const theme = useTheme();

@@ -24,7 +24,7 @@ import {
 import { useTheme } from "@mui/material";
 import { setMode, logout } from "features/auth/authSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
@@ -36,9 +36,9 @@ export const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
 
   const neutralLight = theme.palette.neutral.light;
-  const dark = theme.palette.neutral.dark;
+  // const dark = theme.palette.neutral.dark;
   const background = theme.palette.background.default;
-  const primaryLight = theme.palette.primary.light;
+  // const primaryLight = theme.palette.primary.light;
   const alt = theme.palette.background.alt;
 
   const StyledLink = styled(Link)(({ theme }) => ({

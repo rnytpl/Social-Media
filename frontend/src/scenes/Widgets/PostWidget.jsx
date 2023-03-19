@@ -9,65 +9,63 @@ import { FlexBetween } from "components/FlexBetween";
 import Friend from "components/Friend";
 import WidgetWrapper from "components/WidgetWrapper";
 import { useState } from "react";
-import { selectPostById } from "features/posts/postsApiSlice";
-import { useLikePostMutation } from "features/posts/postsApiSlice";
+import {
+  useGetPostsQuery,
+  useLikePostMutation,
+} from "features/posts/postsApiSlice";
 import CommentBox from "components/CommentBox";
 import { useSelector } from "react-redux";
 import CommentUserImage from "components/CommentUserImage";
 
 const PostWidget = ({ postId }) => {
-  const {
-    id,
-    userId,
-    firstName,
-    lastName,
-    description,
-    location,
-    picturePath,
-    comments,
-    likes,
-    userPicturePath,
-  } = useSelector((state) => selectPostById(state, postId));
-
+  const { post } = useGetPostsQuery("postsList", {
+    selectFromResult: ({ data }) => ({
+      post: data?.entities[postId],
+    }),
+  });
   const [isComments, setIsComments] = useState(false);
   const { palette } = useTheme();
   const user = useSelector((state) => state.auth.user);
-  const isLiked = Boolean(likes[user._id]);
-  const primaryLight = palette.primary.main;
+  const isLiked = Boolean(post.likes[user._id]);
+  // const primaryLight = palette.primary.main;
   const main = palette.neutral.main;
   const [likePostMutation] = useLikePostMutation();
 
   return (
-    <WidgetWrapper m="2rem 0">
+    <WidgetWrapper mb="1.25rem">
       <Friend
-        name={`${firstName} ${lastName}`}
-        location={location}
-        userPicturePath={userPicturePath}
-        postId={id}
-        postUserId={userId}
+        name={`${post.firstName} ${post.lastName}`}
+        location={post.location}
+        userPicturePath={post.userPicturePath}
+        postId={post._id}
+        postUserId={post.userId}
       />
       <Box textAlign="center" p="1rem 0.25rem">
-        {picturePath && <img width="50%" height="auto" src={picturePath} />}
+        {post.picturePath && (
+          <img width="50%" height="auto" src={post.picturePath} alt="post" />
+        )}
       </Box>
       <Typography color={main} sx={{ mt: "1rem" }}>
-        {description}
+        {post.description}
       </Typography>
       <FlexBetween mt="0.25rem">
         <FlexBetween gap="1rem">
           <FlexBetween gap="0.3rem">
             <IconButton
-              onClick={() => likePostMutation({ postId: id, userId: user._id })}
+              onClick={() =>
+                likePostMutation({ postId: post._id, userId: user._id })
+              }
             >
               {isLiked ? <FavoriteOutlined /> : <FavoriteBorderOutlined />}
             </IconButton>
 
-            <Typography>{Object.keys(likes).length}</Typography>
+            <Typography>{Object.keys(post.likes).length}</Typography>
           </FlexBetween>
           <FlexBetween gap="0.3rem">
             <IconButton onClick={() => setIsComments(!isComments)}>
               <ChatBubbleOutlineOutlined />
             </IconButton>
-            <Typography>{comments.length}</Typography>
+            <Typography>{post.comments.length}</Typography>
           </FlexBetween>
         </FlexBetween>
         <IconButton>
@@ -76,7 +74,7 @@ const PostWidget = ({ postId }) => {
       </FlexBetween>
       {isComments && (
         <Box>
-          {comments.map((comment) => (
+          {post.comments.map((comment) => (
             <Box key={comment._id} mt="1rem">
               <FlexBetween sx={{ justifyContent: "flex-start" }}>
                 <CommentUserImage userId={comment.userId} />

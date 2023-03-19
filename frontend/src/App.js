@@ -10,6 +10,7 @@ import LoginPage from "./scenes/LoginPage/LoginPage";
 import HomePage from "scenes/HomePage/HomePage";
 import UserWidget from "scenes/Widgets/UserWidget";
 import ProfilePage from "scenes/ProfilePage/ProfilePage";
+import Prefetch from "features/auth/Prefetch";
 
 const App = () => {
   // Pass selected mode as an argument to themeSettings so that createTheme can generate a theme with given options
@@ -23,13 +24,18 @@ const App = () => {
         <CssBaseline />
         <Navbar />
         <Routes>
-          <Route path="/home" element={user ? <HomePage /> : <LoginPage />} />
-          <Route path="/:id" element={user ? <UserWidget /> : <LoginPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route
-            path="/profile/:id"
-            element={user ? <ProfilePage /> : <LoginPage />}
-          />
+          <Route element={<Prefetch />}>
+            <Route path="/home" element={user ? <HomePage /> : <LoginPage />} />
+            <Route
+              path="/:id"
+              element={user ? <UserWidget /> : <LoginPage />}
+            />
+            <Route path="/login" element={<LoginPage />} />
+            <Route
+              path="/profile/:id"
+              element={user ? <ProfilePage /> : <LoginPage />}
+            />
+          </Route>
         </Routes>
       </ThemeProvider>
     </Box>

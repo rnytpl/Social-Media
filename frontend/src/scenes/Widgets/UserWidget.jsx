@@ -3,44 +3,39 @@ import {
   LocationOnOutlined,
   WorkOutlineOutlined,
   ManageAccountsOutlined,
+  Twitter,
+  LinkedIn,
 } from "@mui/icons-material";
 import { Box, Typography, Divider, useTheme } from "@mui/material";
 import UserImage from "components/UserImage";
 import { FlexBetween } from "components/FlexBetween";
 import WidgetWrapper from "components/WidgetWrapper";
-import { useNavigate, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-// import { selectUserById } from "features/users/usersApiSlice";
-// import { useGetUserQuery } from "features/users/usersApiSlice";
+import { useNavigate } from "react-router-dom";
+import { useGetUsersQuery } from "features/users/usersApiSlice";
 
-const UserWidget = () => {
+const UserWidget = ({ userId }) => {
   const { palette } = useTheme();
   const navigate = useNavigate();
-  const {
-    _id: id,
-    picturePath,
-    firstName,
-    lastName,
-    friends,
-    occupation,
-    location,
-    viewedProfile,
-    impressions,
-  } = useSelector((state) => state.auth.user);
+  const { user } = useGetUsersQuery("usersList", {
+    selectFromResult: ({ data }) => ({
+      user: data?.entities[userId],
+    }),
+  });
+
   const dark = palette.neutral.dark;
   const medium = palette.neutral.medium;
   const main = palette.neutral.main;
-  console.log(id, "userWidget");
+
   return (
     <WidgetWrapper>
       {/* FIRST ROW */}
       <FlexBetween
         gap="0.5rem"
         pb="1.1rem"
-        onClick={() => navigate(`/profile/${id}`)}
+        onClick={() => navigate(`/profile/${user._id}`)}
       >
         <FlexBetween gap="1rem">
-          <UserImage image={picturePath} />
+          <UserImage image={user.picturePath} />
           <Box>
             <Typography
               variant="h4"
@@ -53,9 +48,9 @@ const UserWidget = () => {
                 },
               }}
             >
-              {firstName} {lastName}
+              {user.firstName} {user.lastName}
             </Typography>
-            <Typography color={medium}>{friends?.length}</Typography>
+            <Typography color={medium}>{user.friends?.length}</Typography>
           </Box>
         </FlexBetween>
         <ManageAccountsOutlined />
@@ -66,11 +61,11 @@ const UserWidget = () => {
       <Box p="1rem 0">
         <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
           <LocationOnOutlined fontSize="large" sx={{ color: main }} />
-          <Typography color={medium}>{location}</Typography>
+          <Typography color={medium}>{user.location}</Typography>
         </Box>
         <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
           <WorkOutlineOutlined fontSize="large" sx={{ color: main }} />
-          <Typography color={medium}>{occupation}</Typography>
+          <Typography color={medium}>{user.occupation}</Typography>
         </Box>
       </Box>
       <Divider />
@@ -80,13 +75,13 @@ const UserWidget = () => {
         <FlexBetween mb="0.5rem">
           <Typography color={medium}>Who's viewed your profile</Typography>
           <Typography color={medium} fontWeight="500">
-            {viewedProfile}
+            {user.viewedProfile}
           </Typography>
         </FlexBetween>
         <FlexBetween mb="0.5rem">
           <Typography color={medium}>Impressions of your post</Typography>
           <Typography color={medium} fontWeight="500">
-            {impressions}
+            {user.impressions}
           </Typography>
         </FlexBetween>
       </Box>
@@ -100,7 +95,7 @@ const UserWidget = () => {
 
         <FlexBetween gap="1rem" mb="0.5rem">
           <FlexBetween gap="1rem">
-            <img src="assets/twitter.png" alt="twitter" />
+            <Twitter fontSize="large" />
             <Box>
               <Typography color={main} fontWeight="500">
                 Twitter
@@ -113,7 +108,7 @@ const UserWidget = () => {
 
         <FlexBetween gap="1rem" mb="0.5rem">
           <FlexBetween gap="1rem">
-            <img src="assets/linkedin.png" alt="linkedin" />
+            <LinkedIn fontSize="large" sx={{}} />
             <Box>
               <Typography color={main} fontWeight="500">
                 LinkedIn

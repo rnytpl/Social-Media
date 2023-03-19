@@ -4,23 +4,18 @@ import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
 import { store, persistor } from "./store/store";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
-import { usersApiSlice } from "features/users/usersApiSlice";
-import { postsApiSlice } from "features/posts/postsApiSlice";
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
-store.dispatch(usersApiSlice.endpoints.getUsers.initiate());
-
-store.dispatch(postsApiSlice.endpoints.getPosts.initiate());
 
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <Router>
-          <App />
+          <Routes>
+            <Route path="/*" element={<App />} />
+          </Routes>
         </Router>
       </PersistGate>
     </Provider>

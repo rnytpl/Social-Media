@@ -61,7 +61,7 @@ const MyPostWidget = () => {
   };
 
   return (
-    <WidgetWrapper>
+    <WidgetWrapper mb="1.25rem">
       <FlexBetween gap="1.5rem">
         <UserImage image={picturePath} />
         <InputBase

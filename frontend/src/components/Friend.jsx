@@ -40,7 +40,7 @@ const Friend = ({ name, location, userPicturePath, postId, postUserId }) => {
         <UserImage size="55px" image={userPicturePath} />
         <Box
           onClick={() => {
-            navigate(`/profile/$}`);
+            navigate(`/profile/${postUserId}`);
           }}
         >
           <Typography

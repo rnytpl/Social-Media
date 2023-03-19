@@ -4,13 +4,20 @@ import { Chat } from "@mui/icons-material";
 import UserImage from "components/UserImage";
 import WidgetWrapper from "components/WidgetWrapper";
 import { useSelector } from "react-redux";
-import { selectAllUsers } from "features/users/usersApiSlice";
+import { useGetUsersQuery } from "features/users/usersApiSlice";
 
 const FriendsListWidget = () => {
   const { palette } = useTheme();
   const friends = useSelector((state) => state.auth.user.friends);
-  const allUsers = useSelector((state) => selectAllUsers(state));
-  const filteredUsers = allUsers.filter((user) => friends.includes(user._id));
+  const { data, isLoading } = useGetUsersQuery("usersList");
+  const { entities } = data;
+
+  const filteredUsers = friends.map((friendId) => {
+    return entities[friendId];
+  });
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <WidgetWrapper>
