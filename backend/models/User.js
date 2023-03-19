@@ -29,6 +29,10 @@ export const userSchema = new Schema(
       type: String,
       default: "",
     },
+    posts: {
+      type: Array,
+      default: [],
+    },
     friends: {
       type: Array,
       default: [],

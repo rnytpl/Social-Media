@@ -3,7 +3,7 @@ import { User } from "../models/User.js";
 
 export const getUsers = asyncHandler(async (req, res) => {
   console.log("getUsers");
-  const users = await User.find().lean().exec();
+  const users = await User.find().lean().select("-password").exec();
 
   // Check users
   if (!users) {
