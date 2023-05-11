@@ -31,7 +31,6 @@ export const uploadMulter = async (req, res, next) => {
       ...req.body,
       picturePath: downloadUrl,
     };
-    next();
   }
   next();
 };

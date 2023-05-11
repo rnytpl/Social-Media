@@ -2,7 +2,6 @@ import asyncHandler from "express-async-handler";
 import { User } from "../models/User.js";
 
 export const getUsers = asyncHandler(async (req, res) => {
-  console.log("getUsers");
   const users = await User.find().lean().select("-password").exec();
 
   // Check users
@@ -60,7 +59,7 @@ export const getUserFriends = asyncHandler(async (req, res) => {
 export const addRemoveFriend = asyncHandler(async (req, res) => {
   const { id, friendId } = req.params;
   const findUser = await User.findById(id).exec();
-  console.log(id, "id", friendId, "friendId");
+
   if (!findUser) {
     res.status(401).json({ message: "User not found" });
     throw new Error("User not found, addRemoveFriend");
@@ -72,7 +71,6 @@ export const addRemoveFriend = asyncHandler(async (req, res) => {
   }
 
   try {
-    console.log(findUser.friends.includes(friendId));
     if (findUser.friends.includes(friendId)) {
       findUser.friends = findUser.friends.filter(
         (friend) => friend !== friendId

@@ -1,4 +1,6 @@
 import { Box, useMediaQuery } from "@mui/material";
+import { useGetPostsQuery } from "features/posts/postsApiSlice";
+import { useGetUsersQuery } from "features/users/usersApiSlice";
 import { useSelector } from "react-redux";
 import AdvertWidget from "scenes/Widgets/AdvertWidget";
 import FriendsListWidget from "scenes/Widgets/FriendsListWidget";
@@ -10,8 +12,21 @@ const HomePage = () => {
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
   const isExtraLargeScreens = useMediaQuery("(min-width: 1400px");
   const isXXLScreens = useMediaQuery("(min-width: 1600px");
+  const { isLoading } = useGetUsersQuery("usersList", {
+    pollingInterval: 15000,
+    refetchOnMountOrArgChange: true,
+    refetchOnFocus: true,
+  });
+  const user = useSelector((state) => state.auth.user);
+  // const { post } = useGetPostsQuery("postsList", {
+  //   selectFromResult: ({ data }) => ({
+  //     post: data?.entities[postId],
+  //   }),
+  // });
 
-  const { _id: id } = useSelector((state) => state.auth.user);
+  if (isLoading) {
+    return <p>is Loading...</p>;
+  }
 
   return (
     <Box
@@ -22,7 +37,7 @@ const HomePage = () => {
           ? "90vw"
           : isNonMobileScreens
           ? "100vw"
-          : "60vw"
+          : "90vw"
       }
       sx={{ m: "auto" }}
     >
@@ -34,7 +49,7 @@ const HomePage = () => {
         justifyContent="space-between"
       >
         <Box flexBasis={isNonMobileScreens ? "26%" : undefined}>
-          <UserWidget userId={id} />
+          <UserWidget userId={user._id} />
         </Box>
         <Box
           flexBasis={isNonMobileScreens ? "42%" : undefined}

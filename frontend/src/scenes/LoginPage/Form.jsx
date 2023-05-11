@@ -6,15 +6,16 @@ import {
   Box,
   Typography,
   IconButton,
+  FormLabel,
 } from "@mui/material";
 import Dropzone from "react-dropzone";
 import { useTheme } from "@emotion/react";
-import { Close } from "@mui/icons-material";
+import { Close, Label } from "@mui/icons-material";
 import { FlexBetween } from "../../components/FlexBetween";
 import { useRegisterMutation } from "../../features/auth/authApiSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { useLoginMutation } from "../../features/auth/authApiSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import LoadingButton from "components/LoadingButton";
 import Error from "components/Error";
 import { setUser } from "features/auth/authSlice";
@@ -34,6 +35,8 @@ const Form = () => {
   const [picture, setPicture] = useState(null);
   const [picturePath, setPicturePath] = useState("");
 
+  console.log(email);
+
   const [
     register,
     {
@@ -44,16 +47,6 @@ const Form = () => {
     },
   ] = useRegisterMutation();
 
-  const [
-    login,
-    {
-      isLoading: isLoginLoading,
-      isError: isLoginError,
-      isSuccess: isLoginSuccess,
-      error: loginError,
-    },
-  ] = useLoginMutation();
-
   const resetStates = () => {
     setFirstName("");
     setLastName("");
@@ -61,10 +54,15 @@ const Form = () => {
     setEmail("");
     setOccupation("");
     setLocation("");
-    setPicture(null);
+    setPicture("");
     setPicturePath("");
     setPageType("login");
   };
+
+  const [
+    login,
+    { isLoading: isLoginLoading, isSuccess: isLoginSuccess, error: loginError },
+  ] = useLoginMutation();
 
   useEffect(() => {
     if (isRegisterSuccess) {
@@ -78,7 +76,7 @@ const Form = () => {
       resetStates();
       navigate("/home");
     }
-  }, [isLoginSuccess]);
+  }, [isLoginSuccess, navigate]);
 
   const onPageTypeClicked = (type) => {
     resetStates();
@@ -117,7 +115,6 @@ const Form = () => {
     password,
     occupation,
     location,
-    picture,
   ].every(Boolean);
 
   const loginCanSave = [email, password].every(Boolean);
@@ -202,7 +199,6 @@ const Form = () => {
                 acceptedFiles=".jpeg,.jpeg,.png"
                 multiple={false}
                 onDrop={(acceptedFiles) => {
-                  console.log(acceptedFiles);
                   setPicture(acceptedFiles[0]);
                 }}
               >
@@ -288,9 +284,11 @@ const Form = () => {
             <TextField
               label="Email"
               fullWidth
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value.toLowerCase())}
               value={email}
+              type="email"
             />
+            <FormLabel>*Test Email: test@test.com</FormLabel>
           </Grid>
           <Grid item xs={12}>
             <TextField
@@ -300,6 +298,7 @@ const Form = () => {
               value={password}
               fullWidth
             />
+            <FormLabel>*Test Password: 123456</FormLabel>
           </Grid>
           {loginError && <Error error={loginError.data.message} />}
           <Grid item xs={12}>

@@ -3,8 +3,26 @@ import { Post } from "../models/Post.js";
 import { User } from "../models/User.js";
 import asyncHandler from "express-async-handler";
 
+export const getFeedPosts = asyncHandler(async (req, res) => {
+  try {
+    const post = await Post.find().populate("comments").lean().exec();
+    res.status(200).json(post);
+  } catch (err) {
+    res.status(404).json({ message: err.message });
+  }
+});
+
 export const createPost = asyncHandler(async (req, res) => {
   const { userId, description, picturePath } = req.body;
+
+  const checkFields = [userId, description].every(Boolean);
+
+  if (!checkFields) {
+    res
+      .status(400)
+      .json({ message: "Please provide information for all fields" });
+    throw new Error("Missing information");
+  }
 
   const findUser = await User.findById(userId);
 
@@ -64,13 +82,16 @@ export const newComment = asyncHandler(async (req, res) => {
   res.status(200).json(newComment);
 });
 
-export const getFeedPosts = asyncHandler(async (req, res) => {
-  try {
-    const post = await Post.find().populate("comments").lean().exec();
-    res.status(200).json(post);
-  } catch (err) {
-    res.status(404).json({ message: err.message });
-  }
+export const editComment = asyncHandler(async (req, res) => {
+  const { commentId, editComment } = req.body;
+
+  const findComment = await Comment.findByIdAndUpdate(
+    { _id: commentId.toString() },
+    { comment: editComment },
+    { new: true }
+  );
+
+  res.status(200).json(findComment);
 });
 
 export const getUserPosts = asyncHandler(async (req, res) => {

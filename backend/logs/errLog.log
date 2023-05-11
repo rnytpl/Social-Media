@@ -431,3 +431,19 @@
 130323	12:05:17	27866a68-3976-4818-bdf1-b33ce7317857	Error, ERR_HTTP_HEADERS_SENT, Cannot set headers after they are sent to the client
 130323	01:10:39	fe51992e-9b96-4973-bd50-6f977d7b306b	Error, ERR_HTTP_HEADERS_SENT, Cannot set headers after they are sent to the client
 190323	10:36:52	c4ae105a-9b8f-4f78-99b3-187f5c97e3e3	CastError, undefined, Cast to ObjectId failed for value "u" (type string) at path "_id" for model "User"
+200323	10:00:13	14f16d38-a338-42ea-8caa-f8a53de96627	CastError, undefined, Cast to ObjectId failed for value "createPost" (type string) at path "_id" for model "Post"
+200323	10:01:13	56076de8-54ae-4a6c-90bc-0ec44c2f2fbf	CastError, undefined, Cast to ObjectId failed for value "createPost" (type string) at path "_id" for model "Post"
+200323	10:03:47	69ef0e62-e94c-4c1a-abed-1acd7ab5bd38	CastError, undefined, Cast to ObjectId failed for value "createPost" (type string) at path "_id" for model "Post"
+200323	10:04:33	b3e3029f-b3b6-4e71-ac53-c5678f2873f6	CastError, undefined, Cast to ObjectId failed for value "createPost" (type string) at path "_id" for model "Post"
+200323	10:05:44	bea558ec-8886-4838-8639-83d263be0637	CastError, undefined, Cast to ObjectId failed for value "createPost" (type string) at path "_id" for model "Post"
+200323	10:10:45	664e51c9-f4a9-4e44-ba0e-60ae6b21b340	CastError, undefined, Cast to ObjectId failed for value "createPost" (type string) at path "_id" for model "Post"
+200323	10:14:21	d04ff07a-2b9d-479e-aaf7-0b2048b3059a	CastError, undefined, Cast to ObjectId failed for value "createPost" (type string) at path "_id" for model "Post"
+200323	10:24:02	77223eec-2a7b-4a4e-b408-90c59b98dc02	Error, undefined, Missing information
+200323	10:25:59	e226e819-0cff-4aed-98d7-e347e0685905	Error, undefined, Missing information
+210323	10:56:25	b5038bb9-15c9-4cb7-901d-89ae6c21e043	Error, undefined, Duplicate User
+100523	11:33:48	2192ae6d-95ae-47e3-9114-74c091fbaffc	ReferenceError, undefined, userId is not defined
+100523	11:40:16	b685218e-24f5-4fcb-adc2-64c63d957a9c	CastError, undefined, Cast to ObjectId failed for value "{ id: '645bc9609edde800d56d8938' }" (type Object) at path "_id" for model "Comment"
+100523	11:40:36	d45029c9-0461-4806-ae6d-17b7e4427886	CastError, undefined, Cast to ObjectId failed for value "{ id: '645bc9609edde800d56d8938' }" (type Object) at path "_id" for model "Comment"
+100523	11:40:41	5093015e-2b13-4f16-84cd-a671edf19f8f	ValidationError, undefined, Comment validation failed: comment: Path `comment` is required.
+100523	11:40:43	63f09bdf-5457-4100-aee0-7aa0e091b3a4	CastError, undefined, Cast to ObjectId failed for value "{ id: '645bc9609edde800d56d8938' }" (type Object) at path "_id" for model "Comment"
+100523	11:40:52	415017be-b7f1-476e-b4c9-8f7de6edd87c	CastError, undefined, Cast to ObjectId failed for value "{ id: '645bc9609edde800d56d8938' }" (type Object) at path "_id" for model "Comment"

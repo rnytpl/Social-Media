@@ -32,15 +32,11 @@ app.use(cors());
 app.use(express.json());
 app.use(logger);
 
-app.get("/user", (req, res) => {
-  res.send("user endpoint");
-});
-
 app.use("/", express.static(path.join(__dirname, "public")));
 
 app.post("/auth/register", upload.single("picture"), uploadMulter, register);
 app.post(
-  "/posts",
+  "/posts/createPost",
   verifyToken,
   upload.single("picture"),
   uploadMulter,

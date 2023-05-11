@@ -1,6 +1,5 @@
 import { Box, useMediaQuery } from "@mui/material";
-import { selectAllPosts, useGetPostsQuery } from "features/posts/postsApiSlice";
-import { useSelector } from "react-redux";
+import { useGetPostsQuery } from "features/posts/postsApiSlice";
 import { useParams } from "react-router-dom";
 import AdvertWidget from "scenes/Widgets/AdvertWidget";
 import FriendsListWidget from "scenes/Widgets/FriendsListWidget";
@@ -9,10 +8,9 @@ import UserWidget from "scenes/Widgets/UserWidget";
 
 const ProfilePage = () => {
   const { id: userId } = useParams();
-  // const isXXLScreens = useMediaQuery("(min-width: 1700px");
-  const isXLScreens = useMediaQuery("(min-width: 1400px");
-  const isLargeScreens = useMediaQuery("(min-width: 1200px");
-  const isNonMobileScreens = useMediaQuery("(min-width: 1000px");
+  const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
+  const isExtraLargeScreens = useMediaQuery("(min-width: 1400px");
+  const isXXLScreens = useMediaQuery("(min-width: 1600px");
   const { data } = useGetPostsQuery("postsList");
   const { ids, entities } = data;
 
@@ -21,13 +19,13 @@ const ProfilePage = () => {
   return (
     <Box
       width={
-        isXLScreens
+        isXXLScreens
           ? "70vw"
-          : isLargeScreens
+          : isExtraLargeScreens
           ? "90vw"
           : isNonMobileScreens
-          ? "90vw"
-          : "70vw"
+          ? "100vw"
+          : "90vw"
       }
       sx={{ m: "auto" }}
     >
